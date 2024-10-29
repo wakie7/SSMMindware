@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>SSM - MINDWARE - Web Site</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body id="top">
+<header>
+    <div class="container-fluid py-2 social-media-bar">
+        <div class="row">
+            <div class="col text-center">
+                <a href="#" class="me-2 me-sm-3 social-icon"
+                ><i class="bi bi-facebook fs-5"></i
+                ></a>
+                <a href="#" class="me-2 me-sm-3 social-icon"
+                ><i class="bi bi-twitter fs-5"></i
+                ></a>
+                <a href="#" class="me-2 me-sm-3 social-icon"
+                ><i class="bi bi-instagram fs-5"></i
+                ></a>
+                <a href="#" class="me-2 me-sm-3 social-icon"
+                ><i class="bi bi-linkedin fs-5"></i
+                ></a>
+                <a href="#" class="me-2 me-sm-3 social-icon"
+                ><i class="bi bi-youtube fs-5"></i
+                ></a>
+                <a href="#" class="me-2 me-sm-3 social-icon"
+                ><i class="bi bi-pinterest fs-5"></i
+                ></a>
+                <a href="#" class="me-2 me-sm-3 social-icon"
+                ><i class="bi bi-whatsapp fs-5"></i
+                ></a>
+                <a href="#" class="social-icon"
+                ><i class="bi bi-telegram fs-5"></i
+                ></a>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container-fluid">
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center align-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#top">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#nuestros-servicios">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#acerca-de">Acerca</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#clientes">Clientes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a
+                                class="nav-link"
+                                href="/contacto"
+                        >Contactanos</a
+                        >
+                    </li>
+                    <li class="nav-item">
+                        <a
+                                class="nav-link"
+                                href="loginController"
+                        >Login</a
+                        >
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main class="py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 text-center text-lg-start mb-4 mb-lg-0">
+                <div class="logo-container">
+                    <img
+                            src="img/SSM-MINDWARE%20(2).png"
+                            alt="logo"
+                            class="img-fluid logo-3d"
+                    />
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <h2 class="mb-4">SSM - MINDWARE</h2>
+                <p class="lead">
+                    Somos una empresa líder en servicios de desarrollo de software,
+                    especializada en:
+                </p>
+                <ul class="list-unstyled">
+                    <li>
+                        <i class="bi bi-code-slash text-primary me-2"></i>Desarrollo de
+                        software a medida
+                    </li>
+                    <li>
+                        <i class="bi bi-globe text-primary me-2"></i>Desarrollo de
+                        aplicaciones web
+                    </li>
+                    <li>
+                        <i class="bi bi-phone text-primary me-2"></i>Desarrollo de
+                        aplicaciones móviles
+                    </li>
+                    <li>
+                        <i class="bi bi-database text-primary me-2"></i>Gestión de bases
+                        de datos
+                    </li>
+                    <li>
+                        <i class="bi bi-cloud text-primary me-2"></i>Servicios en la
+                        nube
+                    </li>
+                    <li>
+                        <i class="bi bi-shield-check text-primary me-2"></i
+                        >Ciberseguridad
+                    </li>
+                </ul>
+                <p>
+                    Nuestro equipo de expertos está comprometido con la excelencia y
+                    la innovación en cada proyecto.
+                </p>
+            </div>
+        </div>
+    </div>
+    <section id="nuestros-servicios" class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-5 neon-text animated-title">Nuestros Servicios</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 service-card">
+                        <div class="card-body">
+                            <i class="bi bi-code-slash service-icon"></i>
+                            <h5 class="card-title">Desarrollo de Software</h5>
+                            <p class="card-text">
+                                Creamos soluciones de software personalizadas para
+                                satisfacer las necesidades específicas de su negocio,
+                                mejorando la eficiencia y productividad.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 service-card">
+                        <div class="card-body">
+                            <i class="bi bi-globe service-icon"></i>
+                            <h5 class="card-title">Desarrollo de Aplicaciones Web</h5>
+                            <p class="card-text">
+                                Diseñamos y desarrollamos aplicaciones web robustas y
+                                escalables, utilizando las últimas tecnologías para
+                                garantizar un rendimiento óptimo.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 service-card">
+                        <div class="card-body">
+                            <i class="bi bi-phone service-icon"></i>
+                            <h5 class="card-title">Desarrollo de Aplicaciones Móviles</h5>
+                            <p class="card-text">
+                                Creamos aplicaciones móviles intuitivas y atractivas para
+                                iOS y Android, que se adaptan perfectamente a las
+                                necesidades de sus usuarios.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 service-card">
+                        <div class="card-body">
+                            <i class="bi bi-database service-icon"></i>
+                            <h5 class="card-title">Gestión de Bases de Datos</h5>
+                            <p class="card-text">
+                                Optimizamos y gestionamos sus bases de datos para garantizar
+                                un acceso rápido y seguro a la información crítica de su
+                                empresa.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 service-card">
+                        <div class="card-body">
+                            <i class="bi bi-cloud service-icon"></i>
+                            <h5 class="card-title">Servicios en la Nube</h5>
+                            <p class="card-text">
+                                Implementamos y gestionamos soluciones en la nube para
+                                mejorar la escalabilidad y flexibilidad de sus sistemas
+                                informáticos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 service-card">
+                        <div class="card-body">
+                            <i class="bi bi-shield-check service-icon"></i>
+                            <h5 class="card-title">Ciberseguridad</h5>
+                            <p class="card-text">
+                                Protegemos sus activos digitales con soluciones de seguridad
+                                avanzadas, garantizando la integridad y confidencialidad de
+                                sus datos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="acerca-de" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5 animated-title neon-text">Acerca de SSM - MINDWARE</h2>
+            <div class="row">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="image-container">
+                        <img src="../img/1703215965814.jpeg" alt="Nuestro equipo trabajando" class="img-fluid rounded shadow-lg hover-effect">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="content-box">
+                        <p class="lead animated-text">SSM - MINDWARE es una empresa líder en soluciones tecnológicas, dedicada a transformar ideas en realidad digital.</p>
+                        <p class="animated-text">Fundada en 2024 en la clase de Marco de desarrollo Web de la profesora Kimberly, nuestra misión es proporcionar servicios de desarrollo de software de alta calidad que impulsen el éxito de nuestros clientes en la era digital.</p>
+                        <h5 class="mt-4 animated-text">Nuestros valores:</h5>
+                        <ul class="values-list">
+                            <li class="animated-list-item"><i class="bi bi-lightbulb-fill text-primary me-2"></i>Innovación constante</li>
+                            <li class="animated-list-item"><i class="bi bi-trophy-fill text-primary me-2"></i>Excelencia en el servicio al cliente</li>
+                            <li class="animated-list-item"><i class="bi bi-shield-fill-check text-primary me-2"></i>Integridad y transparencia</li>
+                            <li class="animated-list-item"><i class="bi bi-people-fill text-primary me-2"></i>Trabajo en equipo y colaboración</li>
+                            <li class="animated-list-item"><i class="bi bi-book-half text-primary me-2"></i>Aprendizaje continuo</li>
+                        </ul>
+                        <p class="animated-text">Con un equipo de profesionales altamente calificados y apasionados, nos esforzamos por superar las expectativas en cada proyecto, combinando creatividad técnica con soluciones prácticas y eficientes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="clientes" class="py-5 bg-light text-light">
+        <div class="container">
+            <h2 class="text-center mb-5 animated-title neon-text">Nuestros Clientes</h2>
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-4 justify-content-center">
+                <div class="col">
+                    <div class="card h-100 bg-transparent border-0 client-card">
+                        <img src="../img/microsft-removebg-preview.png" class="card-img-top p-3 client-logo" alt="Cliente 1">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 bg-transparent border-0 client-card">
+                        <img src="../img/lgo cisco.png" class="card-img-top p-3 client-logo" alt="Cliente 2">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 bg-transparent border-0 client-card">
+                        <img src="../img/apple_logo-removebg-preview.png" class="card-img-top p-3 client-logo" alt="Cliente 3">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 bg-transparent border-0 client-card">
+                        <img src="../img/logo_ibm-removebg-preview.png" class="card-img-top p-3 client-logo" alt="Cliente 4">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 bg-transparent border-0 client-card">
+                        <img src="../img/logoOracle-removebg-preview.png" class="card-img-top p-3 client-logo" alt="Cliente 5">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 bg-transparent border-0 client-card">
+                        <img src="../img/logo_de_google-removebg-preview.png" class="card-img-top p-3 client-logo" alt="Cliente 6">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="bg-dark text-light py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 mb-4 mb-md-0">
+                <h5 class="mb-3">SSM - MINDWARE</h5>
+                <p class="mb-0">
+                    Soluciones de software innovadoras para impulsar tu negocio.
+                </p>
+            </div>
+            <div class="col-md-3 mb-4 mb-md-0">
+                <h5 class="mb-3">Enlaces rápidos</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-light">Inicio</a></li>
+                    <li><a href="#" class="text-light">Servicios</a></li>
+                    <li><a href="#" class="text-light">Portafolio</a></li>
+                    <li><a href="#" class="text-light">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 mb-4 mb-md-0">
+                <h5 class="mb-3">Contáctanos</h5>
+                <p><i class="bi bi-geo-alt-fill me-2"></i>Dirección, Ciudad, País</p>
+                <p><i class="bi bi-envelope-fill me-2"></i>info@ssm-mindware.com</p>
+                <p><i class="bi bi-telephone-fill me-2"></i>+1 234 567 890</p>
+            </div>
+            <div class="col-md-3">
+                <h5 class="mb-3">Nuestra Esencia</h5>
+                <div class="d-flex align-items-center mb-3">
+                    <i class="bi bi-bullseye fs-2 me-3 text-primary"></i>
+                    <div>
+                        <h6 class="mb-1">Misión</h6>
+                        <p class="mb-0 small">Transformar ideas en soluciones tecnológicas innovadoras que impulsen el éxito de nuestros clientes.</p>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center">
+                    <i class="bi bi-eye fs-2 me-3 text-primary"></i>
+                    <div>
+                        <h6 class="mb-1">Visión</h6>
+                        <p class="mb-0 small">Ser líderes globales en el desarrollo de software, reconocidos por nuestra excelencia e innovación.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="my-4" />
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-start">
+                <p class="mb-0">
+                    &copy; 2024 SSM - MINDWARE. Todos los derechos reservados.
+                </p>
+            </div>
+            <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
+                <a href="#" class="text-light me-3"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="text-light me-3"><i class="bi bi-twitter"></i></a>
+                <a href="#" class="text-light me-3"><i class="bi bi-linkedin"></i></a>
+                <a href="#" class="text-light"><i class="bi bi-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<a href="https://wa.me/1234567890" class="whatsapp-float" target="_blank">
+    <i class="bi bi-whatsapp"></i>
+    <span class="whatsapp-text">Whatsapp</span>
+</a>
+
+
+<!-- jQuery y Bootstrap -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+
+
+
+
+
+</body>
+</html>

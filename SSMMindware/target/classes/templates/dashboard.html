@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        body {
+            background-color: #e9ecef;
+            font-family: 'Arial', sans-serif;
+        }
+        h1 {
+            color: #343a40;
+            margin-bottom: 20px;
+        }
+        .nav-pills .nav-link {
+            border-radius: 0.5rem;
+            color: #495057;
+            background-color: #f8f9fa;
+        }
+        .nav-pills .nav-link.active {
+            background-color: #007bff;
+            color: white;
+        }
+        .table {
+            border-radius: 0.5rem;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .btn-warning {
+            background-color: #ffc107;
+            border: none;
+        }
+        .btn-warning:hover {
+            background-color: #e0a800;
+        }
+        .btn-danger {
+            background-color: #dc3545;
+            border: none;
+        }
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+        .modal-header {
+            background-color: #007bff;
+            color: white;
+        }
+        .modal-footer .btn-secondary {
+            background-color: #6c757d;
+        }
+        .modal-footer .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="text-center">Dashboard</h1>
+    <nav class="nav nav-pills flex-column flex-sm-row mb-4">
+        <a class="flex-sm-fill text-sm-center nav-link active" href="#usuarios" data-toggle="tab">Usuarios</a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="#desarrolladores" data-toggle="tab">Desarrolladores</a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="#servicios" data-toggle="tab">Servicios</a>
+    </nav>
+
+    <div class="tab-content">
+        <div class="tab-pane fade show active" id="usuarios">
+            <h2>Usuarios</h2>
+            <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#usuarioModal">Agregar Nuevo Usuario</button>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>ID Usuario</th>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Opciones</th>
+                </tr>
+                </thead>
+                <tbody id="tablaUsuarios">
+
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tab-pane fade" id="desarrolladores">
+            <h2>Desarrolladores</h2>
+            <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#desarrolladorModal">Agregar Nuevo Desarrollador</button>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>ID Desarrollador</th>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Opciones</th>
+                </tr>
+                </thead>
+                <tbody id="tablaDesarrolladores">
+
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tab-pane fade" id="servicios">
+            <h2>Servicios</h2>
+            <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#servicioModal">Agregar Nuevo Servicio</button>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>ID Servicio</th>
+                    <th>Nombre Servicio</th>
+                    <th>Descripción</th>
+                    <th>Desarrollador</th>
+                    <th>Opciones</th>
+                </tr>
+                </thead>
+                <tbody id="tablaServicios">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="usuarioModal" tabindex="-1" role="dialog" aria-labelledby="usuarioModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="usuarioModalLabel">Agregar Usuario</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="formUsuario">
+                    <div class="form-group">
+                        <label for="nombre_usuario">Nombre</label>
+                        <input type="text" class="form-control" id="nombre_usuario" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email_usuario">Email</label>
+                        <input type="email" class="form-control" id="email_usuario" required>
+                    </div>
+                    <input type="hidden" id="usuario_id"> <!-- Para almacenar el ID del usuario al editar -->
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" onclick="guardarUsuario()">Guardar Usuario</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="desarrolladorModal" tabindex="-1" role="dialog" aria-labelledby="desarrolladorModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="desarrolladorModalLabel">Agregar Desarrollador</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="formDesarrollador">
+                    <div class="form-group">
+                        <label for="nombre_desarrollador">Nombre</label>
+                        <input type="text" class="form-control" id="nombre_desarrollador" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email_desarrollador">Email</label>
+                        <input type="email" class="form-control" id="email_desarrollador" required>
+                    </div>
+                    <input type="hidden" id="desarrollador_id"> <!-- Para almacenar el ID del desarrollador al editar -->
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" onclick="guardarDesarrollador()">Guardar Desarrollador</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="servicioModal" tabindex="-1" role="dialog" aria-labelledby="servicioModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="servicioModalLabel">Agregar Servicio</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="formServicio">
+                    <div class="form-group">
+                        <label for="nombre_servicio">Nombre del Servicio</label>
+                        <input type="text" class="form-control" id="nombre_servicio" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="descripcion_servicio">Descripción del Servicio</label>
+                        <textarea class="form-control" id="descripcion_servicio" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="desarrollador">Desarrollador</label>
+                        <select class="form-control" id="desarrollador" required>
+                            <!-- Aquí se cargarían los desarrolladores desde el backend -->
+                        </select>
+                    </div>
+                    <input type="hidden" id="servicio_id"> <!-- Para almacenar el ID del servicio al editar -->
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" onclick="guardarServicio()">Guardar Servicio</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script >
+
+    let usuarios = [];
+    let desarrolladores = [];
+    let servicios = [];
+
+    function guardarUsuario() {
+        const nombre = document.getElementById('nombre_usuario').value;
+        const email = document.getElementById('email_usuario').value;
+        const id = document.getElementById('usuario_id').value;
+
+        if (id) {
+            // Editar usuario
+            const usuario = usuarios.find(u => u.id == id);
+            usuario.nombre = nombre;
+            usuario.email = email;
+        } else {
+            // Agregar nuevo usuario
+            const nuevoUsuario = {
+                id: usuarios.length + 1,
+                nombre: nombre,
+                email: email
+            };
+            usuarios.push(nuevoUsuario);
+        }
+        cargarUsuarios();
+        $('#usuarioModal').modal('hide');
+    }
+
+    function cargarUsuarios() {
+        const tablaUsuarios = document.getElementById('tablaUsuarios');
+        tablaUsuarios.innerHTML = '';
+        usuarios.forEach(usuario => {
+            tablaUsuarios.innerHTML += `
+            <tr>
+                <td>${usuario.id}</td>
+                <td>${usuario.nombre}</td>
+                <td>${usuario.email}</td>
+                <td>
+                    <button class="btn btn-warning" onclick="editarUsuario(${usuario.id})">Editar</button>
+                    <button class="btn btn-danger" onclick="eliminarUsuario(${usuario.id})">Eliminar</button>
+                </td>
+            </tr>
+        `;
+        });
+    }
+
+    function editarUsuario(id) {
+        const usuario = usuarios.find(u => u.id == id);
+        document.getElementById('nombre_usuario').value = usuario.nombre;
+        document.getElementById('email_usuario').value = usuario.email;
+        document.getElementById('usuario_id').value = usuario.id;
+        $('#usuarioModal').modal('show');
+    }
+
+    function eliminarUsuario(id) {
+        usuarios = usuarios.filter(u => u.id !== id);
+        cargarUsuarios();
+    }
+
+    function guardarDesarrollador() {
+        const nombre = document.getElementById('nombre_desarrollador').value;
+        const email = document.getElementById('email_desarrollador').value;
+        const id = document.getElementById('desarrollador_id').value;
+
+        if (id) {
+            const desarrollador = desarrolladores.find(d => d.id == id);
+            desarrollador.nombre = nombre;
+            desarrollador.email = email;
+        } else {
+            const nuevoDesarrollador = {
+                id: desarrolladores.length + 1,
+                nombre: nombre,
+                email: email
+            };
+            desarrolladores.push(nuevoDesarrollador);
+        }
+        cargarDesarrolladores();
+        $('#desarrolladorModal').modal('hide');
+    }
+
+    function cargarDesarrolladores() {
+        const tablaDesarrolladores = document.getElementById('tablaDesarrolladores');
+        tablaDesarrolladores.innerHTML = '';
+        desarrolladores.forEach(desarrollador => {
+            tablaDesarrolladores.innerHTML += `
+            <tr>
+                <td>${desarrollador.id}</td>
+                <td>${desarrollador.nombre}</td>
+                <td>${desarrollador.email}</td>
+                <td>
+                    <button class="btn btn-warning" onclick="editarDesarrollador(${desarrollador.id})">Editar</button>
+                    <button class="btn btn-danger" onclick="eliminarDesarrollador(${desarrollador.id})">Eliminar</button>
+                </td>
+            </tr>
+        `;
+        });
+    }
+
+    function editarDesarrollador(id) {
+        const desarrollador = desarrolladores.find(d => d.id == id);
+        document.getElementById('nombre_desarrollador').value = desarrollador.nombre;
+        document.getElementById('email_desarrollador').value = desarrollador.email;
+        document.getElementById('desarrollador_id').value = desarrollador.id;
+        $('#desarrolladorModal').modal('show');
+    }
+
+    function eliminarDesarrollador(id) {
+        desarrolladores = desarrolladores.filter(d => d.id !== id);
+        cargarDesarrolladores();
+    }
+
+    function guardarServicio() {
+        const nombre = document.getElementById('nombre_servicio').value;
+        const descripcion = document.getElementById('descripcion_servicio').value;
+        const desarrolladorId = document.getElementById('desarrollador').value;
+        const id = document.getElementById('servicio_id').value;
+
+        if (id) {
+            const servicio = servicios.find(s => s.id == id);
+            servicio.nombre = nombre;
+            servicio.descripcion = descripcion;
+            servicio.desarrolladorId = desarrolladorId;
+        } else {
+            const nuevoServicio = {
+                id: servicios.length + 1,
+                nombre: nombre,
+                descripcion: descripcion,
+                desarrolladorId: desarrolladorId
+            };
+            servicios.push(nuevoServicio);
+        }
+        cargarServicios();
+        $('#servicioModal').modal('hide');
+    }
+
+    function cargarServicios() {
+        const tablaServicios = document.getElementById('tablaServicios');
+        tablaServicios.innerHTML = '';
+        servicios.forEach(servicio => {
+            const desarrollador = desarrolladores.find(d => d.id == servicio.desarrolladorId);
+            tablaServicios.innerHTML += `
+            <tr>
+                <td>${servicio.id}</td>
+                <td>${servicio.nombre}</td>
+                <td>${servicio.descripcion}</td>
+                <td>${desarrollador ? desarrollador.nombre : 'Desarrollador no encontrado'}</td>
+                <td>
+                    <button class="btn btn-warning" onclick="editarServicio(${servicio.id})">Editar</button>
+                    <button class="btn btn-danger" onclick="eliminarServicio(${servicio.id})">Eliminar</button>
+                </td>
+            </tr>
+        `;
+        });
+    }
+
+    function editarServicio(id) {
+        const servicio = servicios.find(s => s.id == id);
+        document.getElementById('nombre_servicio').value = servicio.nombre;
+        document.getElementById('descripcion_servicio').value = servicio.descripcion;
+        document.getElementById('desarrollador').value = servicio.desarrolladorId;
+        document.getElementById('servicio_id').value = servicio.id;
+        $('#servicioModal').modal('show');
+    }
+
+    function eliminarServicio(id) {
+        servicios = servicios.filter(s => s.id !== id);
+        cargarServicios();
+    }
+
+    cargarUsuarios();
+    cargarDesarrolladores();
+    cargarServicios();
+
+</script>
+</body>
+</html>
